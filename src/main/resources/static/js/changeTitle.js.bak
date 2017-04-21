@@ -1,0 +1,37 @@
+/*
+*该js的作用是点选不同的标题时，标题的颜色跟随变化
+*@auther：theOthers
+*/
+
+function changeTitle(flag){
+	//alert(flag);
+	//获取当前被选中的标题
+	var currentLast = document.querySelector("a.current");
+	//清除被选中的标题
+	currentLast.setAttribute("class","center");
+	//选中被点选的标题
+	var titleNow = document.getElementById(flag);
+	titleNow.setAttribute("class","center current");
+
+	//改变平板中的内容
+	var contain = document.getElementById("contain");
+
+	contain.innerHTML="<div class='swiper-wrapper'>"+
+					  "<div class='swiper-slide red-slide'>"+
+						"<div class='title'>Slide 1</div>"+
+					  "</div>"+
+					  "<div class='swiper-slide blue-slide'>"+
+						"<div class='title'>Slide 2</div>"+
+					  "</div>"+
+					  "<div class='swiper-slide orange-slide'>"+
+						"<div class='title'>Slide 3</div>"+
+					  "</div>"+
+					"</div>";
+
+	contain.setAttribute("class","swiper-container");
+
+
+
+	var mySwiper = new Swiper('.swiper-container')
+
+}

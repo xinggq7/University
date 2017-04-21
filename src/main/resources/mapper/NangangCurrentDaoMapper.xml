@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="xinggq.university.aircloud.dao.currentDaoImpl.NangangDaoImpl">
+    <select id="getHistoryData" resultType="xinggq.university.aircloud.entity.Nangang">
+        select * from nangang
+    </select>
+
+</mapper>

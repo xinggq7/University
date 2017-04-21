@@ -1,0 +1,34 @@
+.swiper-container {
+
+	margin:0 auto;
+	position:relative;
+	overflow:hidden;
+	width: 100%;
+	height: 545px;
+	color: #fff;
+	background: #222;
+	text-align: center;
+}
+.swiper-wrapper {
+	
+	
+}
+.swiper-free-mode > .swiper-wrapper {
+	
+}
+.swiper-slide {
+	float: left;
+}
+.swiper-slide {
+  width: 60%;
+  height: 100%;
+}
+.red-slide {
+  background: #ca4040;
+}
+.blue-slide {
+  background: #4390ee;
+}
+.orange-slide {
+  background: #ff8604;
+}

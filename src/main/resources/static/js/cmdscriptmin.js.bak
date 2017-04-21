@@ -1,0 +1,198 @@
+/*!
+* CMDScript - Fullscreen and overlay class functions
+* from Scolerov scoolerov@gmail.com
+* Suppost keyboard shortcuts
+* 8: 'backspace',
+* 9: 'tab',
+* 13: 'enter',
+* 16: 'shift',
+* 17: 'ctrl',
+* 18: 'alt',
+* 20: 'capslock',
+* 27: 'esc',
+* 32: 'space',
+* 33: 'pageup',
+* 34: 'pagedown',
+* 35: 'end',
+* 36: 'home',
+* 37: 'left',
+* 38: 'up',
+* 39: 'right',
+* 40: 'down',
+* 45: 'ins',
+* 46: 'del',
+* 91: 'meta',
+* 93: 'meta',
+* 224: 'meta'
+* 106: '*',
+* 107: '+',
+* 109: '-',
+* 110: '.',
+* 111 : '/',
+* 186: ';',
+* 187: '=',
+* 188: ',',
+* 189: '-',
+* 190: '.',
+* 191: '/',
+* 192: '`',
+* 219: '[',
+* 220: '\\',
+* 221: ']',
+* 222: '\''
+* '~': '`',
+* '!': '1',
+* '@': '2',
+* '#': '3',
+* '$': '4',
+* '%': '5',
+* '^': '6',
+* '&': '7',
+* '*': '8',
+* '(': '9',
+* ')': '0',
+* '_': '-',
+* '+': '=',
+* ':': ';',
+* '\"': '\'',
+* '<': ',',
+* '>': '.',
+* '?': '/',
+* '|': '\\'
+* 'option': 'alt',
+* 'command': 'meta',
+* 'return': 'enter',
+* 'escape': 'esc'
+*/
+            
+$(document).ready(function() {
+
+var FScreen = document.querySelector( 'div.overlay' );
+
+ 	// Change main overlay keyboard close shortcut	
+
+	Mousetrap.bind('esc', function(e) {
+ 	classie.remove( FScreen, 'open' )}
+ 	),
+ 	
+ 	// Change main overlay keyboard open shortcut
+ 	
+ 	Mousetrap.bind('m', function(e) {
+ 	classie.add( FScreen, 'open' )}
+ 	) 	
+});
+
+
+(function() {
+	var TBtn = document.getElementsByName( 'area' );
+
+	var FScreen = document.querySelector( 'div.overlay' );
+	var CBtn = FScreen.querySelector( 'button.overlay-close' );
+	TNames = {'WebkitTransition': 'webkitTransitionEnd','MozTransition': 'transitionend','OTransition': 'oTransitionEnd','msTransition': 'MSTransitionEnd','transition': 'transitionend'},
+	EName = TNames[ Modernizr.prefixed( 'transition' ) ],
+	support = { transitions : Modernizr.csstransitions };
+	function toggleFScreen() {
+		if( classie.has( FScreen, 'open' )) {
+			classie.remove( FScreen, 'open' );
+			classie.add( FScreen, 'close' );
+			var onEndTransitionFn = function( ev ) {
+				if( support.transitions ) {
+					if( ev.propertyName !== 'visibility' ) 
+						return;
+					this.removeEventListener( EName, onEndTransitionFn );
+				}
+				classie.remove( FScreen, 'close' );
+			};
+			if( support.transitions ) {
+				FScreen.addEventListener( EName, onEndTransitionFn );
+			}else {
+				onEndTransitionFn();
+			}
+		}else if( !classie.has( FScreen, 'close' ) ) {
+			classie.add( FScreen, 'open');
+		}
+	}
+	for(var i=0;i<TBtn.length;i++){
+		TBtn[i].addEventListener( 'click', toggleFScreen );
+		
+	}
+	CBtn.addEventListener( 'click', toggleFScreen );
+})();
+
+
+$(function () {
+    $(document).ready(function () {
+        Highcharts.setOptions({
+            global: {
+                useUTC: false
+            }
+        });
+
+        $('#container').highcharts({
+            chart: {
+                type: 'spline',
+                animation: Highcharts.svg, // don't animate in old IE
+                marginRight: 10,
+                events: {
+                    load: function () {
+
+                        // set up the updating of the chart each second
+                        var series = this.series[0];
+                        setInterval(function () {
+                            var x = (new Date()).getTime(), // current time
+                                y = Math.random();
+                            series.addPoint([x, y], true, true);
+                        }, 1000);
+                    }
+                }
+            },
+            title: {
+                text: 'Live random data'
+            },
+            xAxis: {
+                type: 'datetime',
+                tickPixelInterval: 150
+            },
+            yAxis: {
+                title: {
+                    text: 'Value'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + this.series.name + '</b><br/>' +
+                        Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+                        Highcharts.numberFormat(this.y, 2);
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            exporting: {
+                enabled: false
+            },
+            series: [{
+                name: 'Random data',
+                data: (function () {
+                    // generate an array of random data
+                    var data = [],
+                        time = (new Date()).getTime(),
+                        i;
+
+                    for (i = -19; i <= 0; i += 1) {
+                        data.push({
+                            x: time + i * 1000,
+                            y: Math.random()
+                        });
+                    }
+                    return data;
+                }())
+            }]
+        });
+    });
+});

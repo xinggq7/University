@@ -1,0 +1,65 @@
+/*
+*标题的样式
+*@author：theOthers
+*
+*/
+
+body, html { 
+
+	font-size: 100%; 	
+	padding: 0; margin: 0;
+}
+body{
+
+	background: #f9f7f6;
+	color: #404d5b;
+	font-weight: 500;
+	font-size: 1.05em;
+	font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
+}
+.htmleaf-container{
+	width:100%;
+	height:100%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+/*包含标题父类div的div*/
+.htmleaf-header{
+	padding: 0px;
+}
+/*颜色*/
+.bgcolor-11{
+	background: #3755ad; 
+	color: #fff;
+}/*dark blue*/
+
+
+/*标题的父类div样式*/
+.htmleaf-demo{
+	width: 100%;
+	padding-bottom: 1.8em;
+}
+/*所有标题的颜色*/
+.htmleaf-demo a{
+
+	text-align: center;
+	color: #fff;
+	text-decoration: none;
+	display: inline-block;
+	margin: 0.9em;
+	padding: 0.6em 1em;
+	border: 3px solid #fff;
+	font-weight: 700;
+}
+.htmleaf-demo img{
+	width:110px;
+	height:88px;
+	margin:10px 10px 10px;
+}
+/*选中的标题*/
+.htmleaf-demo a.current{
+	background:#1d7db1;
+	color: #fff; 
+}
+
