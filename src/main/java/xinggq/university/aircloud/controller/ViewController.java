@@ -11,9 +11,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 //@RequestMapping("")
 public class ViewController {
 
+    /**
+     * 最初参加比赛界面，多地区
+     * @return
+     */
     @RequestMapping("/index")
     public String getView(){
 
         return "index";
+    }
+
+    @RequestMapping("/bishe")
+    public String getBView(){
+
+        return "bishe";
     }
 }

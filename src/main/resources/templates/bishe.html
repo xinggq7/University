@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<link lang="en">
+<link>
+    <meta charset="UTF-8"/>
+    <title>数据监测端</title>
+    <style type="text/css" media="screen">
+        .chart {
+            min-width: 320px;
+            max-width: 800px;
+            height: 220px;
+            margin: 0 auto;
+        }
+    </style>
+    <!--动态曲线引用的js -->
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script src="js/highcharts.js"></script>
+    <script src="js/exporting.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="css/title.css"/>
+    <link rel="stylesheet" type="text/css" href="css/pad.css"/>
+    <!--从侧面弹出的的div样式-->
+    <link rel="stylesheet" type="text/css" href="css/style4.css" />
+
+<!--其他标题的css样式-->
+<link rel="stylesheet" type="text/css" href="css/titleChange.css" />
+<link rel="stylesheet" type="text/css" href="css/specificArea.css" />
+
+    <script src="js/changeTitle.js"></script>
+    <script src="js/highcharts.js"></script>
+    <script src="js/exporting.js"></script>
+    <script src="js/prefixfree.min.js"></script>
+</head>
+<body>
+<div class="htmleaf-container">
+    <header class="htmleaf-header bgcolor-11">
+        <!--标题-->
+        <div class="htmleaf-demo ">
+            <a class="center current" href="bishe.html">地 区 选 择</a>
+            <a id="characteristic" class="center"  href="javascript:void(0)" onclick="changeTitle('characteristic')">理 工 风 采</a>
+        </div>
+        <!--平板-->
+        <!--平板-->
+        <div  class="device">
+            <div id="contain" class="swiper-container">
+                <div class="swiper-wrapper">
+
+
+                    <div class="swiper-slide">
+                        <ul class="grid">
+                            <li class="five">
+                                <ul class="sidenav">
+                                    <li><a name="area" href="javascript:void(0)"><b name="nangang"><h1>当前天气状况</h1></b></a></li>
+                                    <li><a name="area1" href="javascript:void(0)"><b name="nangang"><h2>历史天气状况</h2></b></a></li>
+                                </ul>
+                                <section>
+                                    <h2>哈 尔 滨 南 岗</h2>
+                                    <img src="../img/mb4.png"/>
+                                </section>
+                            </li>
+                        </ul>
+                    </div>
+
+            </div>
+            <div class="pagination"></div>
+            <div class="overlay overlay-slidedown">
+                <button type="button" class="overlay-close">Close</button>
+                <div id="all"></div>
+            </div>
+        </div>
+    </header>
+</div>
+<script src="js/idangerous.swiper-2.1.min.js"></script>
+<script src="js/modernizr.custom.js"></script>
+<script src="js/classie.js"></script>
+<script src="js/cmdscriptmin.js"></script>
+<script src="js/areaPadChoose.js"></script>
+
+</body>
+</html>

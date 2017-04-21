@@ -4,6 +4,7 @@ import net.sf.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import xinggq.university.aircloud.dao.IDataDao;
+import xinggq.university.aircloud.entity.Nangang;
 import xinggq.university.aircloud.factory.IFactory;
 import xinggq.university.aircloud.util.CreateFactorys;
 
@@ -21,8 +22,10 @@ public class DataService {
 
 
     public String getCurrentDate(String name){
-
-        return getIDataDao(name).getCurrentDate().toString();
+        Nangang nangang = (Nangang) getIDataDao(name).getCurrentDate();
+        if(nangang==null)
+            return null;
+        return nangang.toString();
     }
 
 

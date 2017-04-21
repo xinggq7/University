@@ -450,7 +450,7 @@ function ajax(time,area){
 		xmlHTTP = ActiveXObject("Microsoft.XMLHTTP");
 	}
 	if(time=="now"){
-		var url="now.do?area="+area;
+		var url="data/current/"+area;
 		xmlHTTP.onreadystatechange=callBackFun;//设置回调方法
 	}else{
 		var url="export.do?area="+area;
