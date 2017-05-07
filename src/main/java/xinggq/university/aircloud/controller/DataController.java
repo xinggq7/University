@@ -9,7 +9,7 @@ import xinggq.university.aircloud.service.DataService;
 /**
  * Created by xinggq on 17-4-20.
  *
- * 当前实时数据控制器
+ * 数据控制器
  * 只用于返回json数据
  */
 
