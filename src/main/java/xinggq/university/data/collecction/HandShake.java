@@ -1,4 +1,4 @@
-package xinggq.university.datecollection.thread;
+package xinggq.university.data.collecction;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

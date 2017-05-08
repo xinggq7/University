@@ -1,12 +1,14 @@
-package xinggq.university.datecollection.thread;
+package xinggq.university.data.collecction;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import xinggq.university.data.save.DataFilterThread;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.*;
 
 /**
  * Created by xinggq on 17-5-6.
@@ -22,15 +24,9 @@ public class DataAcceptThread extends Thread{
 
     private DatagramSocket socket ; //数据接收和发送的码头
 
-    private String data; //数据接收字符串
-
     private SimpleDateFormat simpleDateFormate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//日期格式化
 
     private boolean isAccept = true;//是否接收数据
-
-    public DatagramSocket getSocket() {
-        return socket;
-    }
 
     public void setSocket(DatagramSocket socket) {
         this.socket = socket;
@@ -80,12 +76,23 @@ public class DataAcceptThread extends Thread{
      * 函数功能：子线程函数，不断刷新data字符串，始终表示最新的数据
      */
     public void run() {
+        ExecutorService pool = Executors.newSingleThreadExecutor();
+        DataFilterThread dataFilterThread = new DataFilterThread();
         while (isAccept){
             try {
                 //每隔1000毫秒接受一次数据
                 Thread.sleep(1000);
-                data =  listen();
-                System.out.println(data);
+                //将数据传递给数据保存线程
+                dataFilterThread.setData(listen());
+                //数据保存线程启动
+                Future<Boolean> future = (Future<Boolean>) pool.submit(dataFilterThread);
+//                try {
+//                    // 等待计算结果，最长等待1秒，1秒后中止任务
+//                    future.get(1, TimeUnit.SECONDS);
+//                } catch (Exception e) {
+//                    logger.error("数据处理超时",e);
+//                    future.cancel(true);
+//                }
             } catch (InterruptedException e) {
                 logger.error(e.getMessage(),e);
             }
