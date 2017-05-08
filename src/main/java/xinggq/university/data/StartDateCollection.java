@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import xinggq.university.data.collecction.DataAcceptThread;
 import xinggq.university.data.collecction.HandShake;
+import xinggq.university.data.service.BackDataService;
+
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import java.net.DatagramSocket;
@@ -34,6 +36,9 @@ public class StartDateCollection implements ServletContextListener {
     @Autowired
     HandShake handShake;
 
+    @Autowired
+    BackDataService dataService;
+
     public StartDateCollection(){
         try{
             socket = new DatagramSocket(0,null);
@@ -54,10 +59,13 @@ public class StartDateCollection implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
-        if(handShake.send(sign.getBytes(),ip,port,socket)){
-            dataAcceptThread.setSocket(socket);
-        }
-            dataAcceptThread.start();
+
+        dataService.createTable();
+//        if(handShake.send(sign.getBytes(),ip,port,socket)){
+//            dataAcceptThread.setSocket(socket);
+//        }
+//            dataAcceptThread.start();
+
     }
 
     @Override
