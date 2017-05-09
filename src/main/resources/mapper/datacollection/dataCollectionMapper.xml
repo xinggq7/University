@@ -9,10 +9,18 @@
     <update id="creatTable" >
         create table if not exists ${tableName}
             <foreach item="field" index="index" collection="fields"
-                     open="(" separator=" varchar(10) null," close=" varchar(10) null)">
+                     open="(" separator=" varchar(10) null," close=" varchar(10) null,time1 datetime null)">
                 ${field}
             </foreach>
 
     </update>
+    
+    <insert id="insertData">
+      insert into ${tableName} values
+        <foreach item="value" index="index" collection="arrayList"
+                 open="(" separator="),(" close=")">
+            ${value}
+        </foreach>
+    </insert>
 
 </mapper>

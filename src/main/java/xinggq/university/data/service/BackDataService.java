@@ -7,6 +7,8 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 import xinggq.university.data.Dao.BackDataDao;
 
+import java.util.ArrayList;
+
 /**
  * Created by xinggq on 17-5-8.
  */
@@ -23,8 +25,15 @@ public class BackDataService {
     @Value("${table.fields.name}")
     private String fields;
 
+    /**
+     * 创建表结构
+     */
     public void createTable(){
         dataDao.creatTable(tableName,fields.split(","));
+    }
+
+    public void insertData(String tableName, ArrayList arrayList){
+        dataDao.insertData(tableName,arrayList);
     }
 
 }

@@ -62,7 +62,7 @@ public class DataAcceptThread extends Thread{
             if (localDatagramPacket.getLength() != 0){
                 byte[] arrayOfByte2 = new byte[localDatagramPacket.getLength()];
                 System.arraycopy(localDatagramPacket.getData(), 0, arrayOfByte2, 0, arrayOfByte2.length);
-                String value=new String(arrayOfByte2).trim()+","+simpleDateFormate.format(new Date());
+                String value=new String(arrayOfByte2).trim()+",\""+simpleDateFormate.format(new Date())+"\"";
                 return value;
             }
         }catch (Exception e){

@@ -60,11 +60,11 @@ public class StartDateCollection implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
 
-        dataService.createTable();
-//        if(handShake.send(sign.getBytes(),ip,port,socket)){
-//            dataAcceptThread.setSocket(socket);
-//        }
-//            dataAcceptThread.start();
+       // dataService.createTable();
+        if(handShake.send(sign.getBytes(),ip,port,socket)){
+            dataAcceptThread.setSocket(socket);
+        }
+            dataAcceptThread.start();
 
     }
 

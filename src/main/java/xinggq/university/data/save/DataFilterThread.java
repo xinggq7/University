@@ -2,14 +2,14 @@ package xinggq.university.data.save;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import xinggq.university.data.SpringApplicationContextHolder;
 import xinggq.university.data.util.Constant;
 import xinggq.university.data.util.RegExp;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by xinggq on 17-5-8.
@@ -30,7 +30,7 @@ public class DataFilterThread extends Thread{
     //数据字符串
     private String data;
 
-    DataSaveThread dataSaveThread = new DataSaveThread();
+    DataSaveThread dataSaveThread;
 
     ExecutorService pool = Executors.newCachedThreadPool();
 
@@ -75,6 +75,7 @@ public class DataFilterThread extends Thread{
      */
     private void sendArrayList(ArrayList arrayList){
 
+        dataSaveThread = (DataSaveThread) SpringApplicationContextHolder.getSpringBean("dataSaveThread");
         dataSaveThread.setCatcheList(arrayList);
         pool.execute(dataSaveThread);
 //        try {
