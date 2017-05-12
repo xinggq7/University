@@ -103,27 +103,41 @@ h2 {
 	position: absolute; 
 	text-align: center; 
 	width: 60%; 
-	left: 20%; 
+	left: 20%;
 	top: 60px; 
 	padding: 10px 0; 
-	border: 3px solid white; 
+	border: 3px solid white;
 	border-radius: 20px;
 	font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
 }
 h1 {
 	font: bold 20px montserrat; 
-	color: #fff; 
+	color: #000;
 	text-transform: uppercase; 
 	position: absolute; 
 	text-align: center; 
 	width: 60%; 
-	left: 20%; 
+	left: 15%;
 	padding: 10px 0; 
-	border: 3px solid white; 
+	border: 3px solid grey;
 	border-radius: 20px;
 	font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
 }
-/*图片样式*/	
+h3 {
+	font: bold 20px montserrat;
+	color: #000;
+	text-transform: uppercase;
+	position: absolute;
+	text-align: center;
+	width: 60%;
+	left: 15%;
+	top: 70px;
+	padding: 10px 0;
+	border: 3px solid grey;
+	border-radius: 20px;
+	font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
+}
+/*图片样式*/
 img{
 	border-radius: 30px;
 	width:auto;
@@ -135,24 +149,24 @@ img{
 * {margin: 0; padding: 0;}
 		li {list-style-type: none;}
 
-		
+
 		.grid > li { width: 285px; height: 500px; overflow: hidden; float: left; margin: 20px 0 20px 30px; position: relative; }
-	
+
 
 		.grid>li section {position: relative; transition: all 0.25s; width: 100%;}
-		
+
 
 		.sidenav { 	border-radius: 20px; position: absolute; top: 0; left: 0; bottom: 0; width: 100%; transition: all 0.25s; overflow: hidden; padding-top: 10px;}
-		.sidenav li { _overflow: hidden; width: 100%s; }
+		.sidenav li { _overflow: hidden; width: 100%; }
 		.sidenav a { text-decoration: none; color: #eee;  display: block; line-height: 48px;  }
 		.sidenav span {display: block;}
-		.sidenav b { padding-left 10px; display: block; color: white; font-family: Montserrat; font-size: 20px; line-height: 2; opacity: 0; }
+		.sidenav b { padding-left: 10px; display: block; color: white; font-family: Montserrat; font-size: 20px; line-height: 2; opacity: 0; }
 		.sidenav a i { display: block; float: left; font-size: 16px; line-height: 48px; width: 50px; text-align: center; }
 
 		/*All instances*/
-		
+
 		.grid>li:hover section {margin-top: 150px;}
-		
+
 		/*样式*/
 		.sidenav li:nth-child(1) b, .sidenav li:nth-child(1) a {transition-delay: .08s;}
 		.sidenav li:nth-child(2) b, .sidenav li:nth-child(2) a {transition-delay: .16s;}
@@ -162,6 +176,6 @@ img{
 		.five b {transform: scale(0); opacity: 0;}
 		.five:hover b {transform: scale(1);  opacity: 1; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);}
 		.five i {transform: scale(0); opacity: 0;}
-		.five:hover i {transform: scale(1);  opacity: 1; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		.five:hover i {transform: scale(1);  opacity: 1; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);}
 		.sidenav li:nth-child(1) i {transition-delay: .48s;}
 		.sidenav li:nth-child(2) i {transition-delay: .40s;}

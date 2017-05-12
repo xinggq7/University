@@ -14,7 +14,7 @@ var time1;
 var chart;
 (function() {
 	var TBtn = document.getElementsByName( 'area' );
-	var TBtn1 = document.getElementsByName( 'area1' );
+    var TBtn1 = document.getElementsByName( 'area1' );
 	var FScreen = document.querySelector( 'div.overlay' );
 	var CBtn = FScreen.querySelector( 'button.overlay-close' );
 	TNames = {'WebkitTransition': 'webkitTransitionEnd','MozTransition': 'transitionend','OTransition': 'oTransitionEnd','msTransition': 'MSTransitionEnd','transition': 'transitionend'},
@@ -59,23 +59,20 @@ var chart;
 				timer = setInterval( function(){ajax(time,area)} , 1000);
 				/***********************画曲线***********************/
 				var NowParameter = document.getElementById("all");
-				
+                $("#main").hide();
 				NowParameter.innerHTML ="<div id = 'NowParameter'>" +
 							"<ul class='pricing_table'>"+
 							"<li class='price_block'>"+
-								"<h3></h3>"+
 								"<div class='price'>"+
 									"<div class='price_figure'>"+
-										"<span class='price_number'>温度</span>"+
+										"<span class=''>温度</span>"+
 									"</div>"+
 								"</div>"+
 								"<ul class='features'>"+
 									"<li id='wendu'></li>"+
-									"<li id='wendu1'></li>"+
 								"</ul>"+
 							"</li>"+
 							"<li class='price_block'>"+
-								"<h3></h3>"+
 								"<div class='price'>"+
 									"<div class='price_figure'>"+
 										"<span class='price_number'>灰尘浓度</span>"+
@@ -83,11 +80,9 @@ var chart;
 								"</div>"+
 								"<ul class='features'>"+
 								"<li id='huichengnongdu'></li>"+
-								"<li id='huichengnongdu1'></li>"+
 								"</ul>"+
 							"</li>"+
 							"<li class='price_block'>"+
-								"<h3></h3>"+
 								"<div class='price'>"+
 									"<div class='price_figure'>"+
 										"<span class='price_number'>空气质量</span>"+
@@ -95,11 +90,9 @@ var chart;
 								"</div>"+
 								"<ul class='features'>"+
 									"<li id='kongqizhiliang'></li>"+
-									"<li id='kongqizhiliang1'></li>"+
 								"</ul>"+
 							"</li>"+
 							"<li class='price_block'>"+
-								"<h3></h3>"+
 								"<div class='price'>"+
 									"<div class='price_figure'>"+
 										"<span class='price_number'>可燃气体浓度</span>"+
@@ -107,11 +100,9 @@ var chart;
 								"</div>"+
 								"<ul class='features'>"+
 									"<li id='keranqitinongdu'></li>"+
-									"<li id='keranqitinongdu1'></li>"+
 								"</ul>"+
 							"</li>"+
 							"<li class='price_block'>"+
-								"<h3></h3>"+
 								"<div class='price'>"+
 									"<div class='price_figure'>"+
 										"<span class='price_number'>气压</span>"+
@@ -119,11 +110,9 @@ var chart;
 								"</div>"+
 								"<ul class='features'>"+
 									"<li id='qiya'></li>"+
-									"<li id='qiya1'></li>"+
 								"</ul>"+
 							"</li>"+
 							"<li class='price_block'>"+
-								"<h3></h3>"+
 								"<div class='price'>"+
 									"<div class='price_figure'>"+
 										"<span class='price_number'>湿度</span>"+
@@ -131,7 +120,6 @@ var chart;
 								"</div>"+
 								"<ul class='features'>"+
 									"<li id='shidu'></li>"+
-									"<li id='shidu1'></li>"+
 								"</ul>"+
 							"</li>"+
 						"</ul></div>" +
@@ -269,7 +257,16 @@ var chart;
 			}else{
 				//历史数据
 				/******************************************************/
-				document.getElementById("all").innerHTML="<div id='container3'></div><div><li><a  href='export.do?area="+area+"' ><b><h1>导 出 全 部 历 史 记 录</h1></b></a></li></div>";
+                $("#main").show();
+				document.getElementById("all").innerHTML=
+					"<div id='container3' style='height: 100px'></div>";
+
+                // document.getElementById("all").innerHTML=
+                //    "<div id=\"main\">"+
+                // 		"<div class=\"demo\">"+
+                // 			"<p>请选择日期：<input type=\"text\" class=\"input\" id=\"pickdate\" /></p><br/>"+
+                // 		"</div>"+
+                // 	"</div>";
 				//请求一次后台
 				//ajax(time,area);
 				/****************************************************/
@@ -329,104 +326,115 @@ var chart;
 
 				    // Get the data. The contents of the data file can be viewed at
 				    // https://github.com/highcharts/highcharts/blob/master/samples/data/activity.json
-				    $.getJSON("past.do?area="+area+"&callback=?", function (activity) {
-				        $.each(activity.datasets, function (i, dataset) {
 
-				            // Add X values
-				            dataset.data = Highcharts.map(dataset.data, function (val, j) {
-				                return [activity.xData[j], val];
-				            });
-				            Highcharts.setOptions({ 
-							    colors: ['#CCDDFF', '#00FFCC', '#FF88C2'] 
-							});
-				            $('<div class="chart">')
-				                .appendTo('#container3')
-				                .highcharts({
-				                    chart: {
-				                    	 backgroundColor: 'rgba(44, 62, 80, 0.2)',
-				                        marginLeft: 40, // Keep all charts left aligned
-				                        spacingTop: 20,
-				                        spacingBottom: 20
-				                        
-				                    },
-				                    title: {
-				                        text: dataset.name,
-				                        align: 'left',
-				                        margin: 0,
-				                        x: 30,
-				                        style: {  
-							                   font: 'normal 20px Verdana, sans-serif' ,
-							                   color: 'white'  
-							              }  
-				                    },
-				                    credits: {
-				                        enabled: false
-				                    },
-				                    exporting: { 
-							            enabled: false  //设置导出按钮不可用 
-							        },
-				                    legend: {
-				                        enabled: false, 
-				                        
-				                    },
-				                    xAxis: {
-				                        crosshair: true,
-				                        events: {
-				                            setExtremes: syncExtremes
-				                        },
-				                        labels: {
-				                            format: ' ',
-			                            	style: {
-					                            color: 'white',//颜色
-					                            fontSize:'14px'  //字体
-					                        }
-				                        }
-				                        
-				                    },
-				                    yAxis: {
-				                        title: {
-				                            text: null
-				                        },
-					                    labels: {
-					                        //y: 20, //x轴刻度往下移动20px
-					                        style: {
-					                            color: 'white',//颜色
-					                            fontSize:'14px'  //字体
-					                        }
-					                    }
-				                    },
-				                    tooltip: {
-				                        positioner: function () {
-				                            return {
-				                                x: this.chart.chartWidth - this.label.width, // right aligned
-				                                y: -1 // align to title
-				                            };
-				                        },
-				                        borderWidth: 0,
-				                        backgroundColor: 'none',
-				                        pointFormat: '{point.y}',
-				                        headerFormat: '',
-				                        shadow: false,
-				                        style: {
-				                            fontSize: '18px',
-				                            color:'white'
-				                            
-				                        },
-				                        valueDecimals: dataset.valueDecimals
-				                    },
-				                    series: [{
-				                        data: dataset.data,
-				                        name: dataset.name,
-				                        type: dataset.type,
-				                        color: Highcharts.getOptions().colors[i],
-				                        fillOpacity: 0.3,
-				                        tooltip: {
-				                            valueSuffix: ' ' + dataset.unit
-				                        }
-				                    }]
-				                });
-				        });
-				    });
+                    $.ajax({
+                        type: "post",
+                        url: "/data/history/"+area,
+                        success: function(data){
+                            var activity = jQuery.parseJSON(data);
+                            $.each(activity.datasets, function (i, dataset) {
+                                // Add X values
+                                dataset.data = Highcharts.map(dataset.data, function (val, j) {
+                                    return [activity.xData[j], val];
+                                });
+                                Highcharts.setOptions({
+                                    colors: ['#CCDDFF', '#00FFCC', '#FF88C2']
+                                });
+                                $('<div class="chart">')
+                                    .appendTo('#container3')
+                                    .highcharts({
+                                        chart: {
+                                            backgroundColor: 'rgba(44, 62, 80, 0.2)',
+                                            marginLeft: 40, // Keep all charts left aligned
+                                            spacingTop: 20,
+                                            spacingBottom: 20
+
+                                        },
+                                        title: {
+                                            text: dataset.name,
+                                            align: 'left',
+                                            margin: 0,
+                                            x: 30,
+                                            style: {
+                                                font: 'normal 20px Verdana, sans-serif' ,
+                                                color: 'white'
+                                            }
+                                        },
+                                        credits: {
+                                            enabled: false
+                                        },
+                                        exporting: {
+                                            enabled: false  //设置导出按钮不可用
+                                        },
+                                        legend: {
+                                            enabled: false,
+
+                                        },
+                                        xAxis: {
+                                            crosshair: true,
+                                            events: {
+                                                setExtremes: syncExtremes
+                                            },
+                                            labels: {
+                                                format: ' ',
+                                                style: {
+                                                    color: 'white',//颜色
+                                                    fontSize:'14px'  //字体
+                                                }
+                                            }
+
+                                        },
+                                        yAxis: {
+                                            title: {
+                                                text: null
+                                            },
+                                            labels: {
+                                                //y: 20, //x轴刻度往下移动20px
+                                                style: {
+                                                    color: 'white',//颜色
+                                                    fontSize:'14px'  //字体
+                                                }
+                                            }
+                                        },
+                                        tooltip: {
+                                            positioner: function () {
+                                                return {
+                                                    x: this.chart.chartWidth - this.label.width, // right aligned
+                                                    y: -1 // align to title
+                                                };
+                                            },
+                                            borderWidth: 0,
+                                            backgroundColor: 'none',
+                                            pointFormat: '{point.y}',
+                                            headerFormat: '',
+                                            shadow: false,
+                                            style: {
+                                                fontSize: '18px',
+                                                color:'white'
+
+                                            },
+                                            valueDecimals: dataset.valueDecimals
+                                        },
+                                        series: [{
+                                            data: dataset.data,
+                                            name: dataset.name,
+                                            type: dataset.type,
+                                            color: Highcharts.getOptions().colors[i],
+                                            fillOpacity: 0.3,
+                                            tooltip: {
+                                                valueSuffix: ' ' + dataset.unit
+                                            }
+                                        }]
+                                    });
+                            });
+                        }
+                    });
+
+
+
+
+
+				    //$.ajax("/data/history/"+area, function (activity) );
 				});
 				/*********************************************************/
 			}
@@ -465,6 +473,8 @@ function ajax(time,area){
 function callBackFun(){
 	if(xmlHTTP.readyState==4&&xmlHTTP.status==200){
 	var s = xmlHTTP.responseText;
+	if(s==null||s=="")
+		return;
 	object = eval("(" + s + ")");//将传送过来的json字符串包装成一个对象，注意要加上两边的圆括号
 	
 	
@@ -477,24 +487,22 @@ function callBackFun(){
 	time1 = object.time1;
 	
 	document.getElementById("wendu").innerText="当 前 值:"+wendu+"℃";
-	document.getElementById("wendu1").innerText="预 测 值:"+wendu+"℃";
-	
+
 	document.getElementById("huichengnongdu").innerText="当 前 值:"+huichengnongdu+"mg/m³";
-	document.getElementById("huichengnongdu1").innerText="预 测 值:"+huichengnongdu+"mg/m³";
-	
+
 	document.getElementById("kongqizhiliang").innerText="当 前 值:"+kongqizhiliang+"";
-	document.getElementById("kongqizhiliang1").innerText="预 测 值:"+kongqizhiliang+"";
-	
+
 	document.getElementById("keranqitinongdu").innerText="当 前 值:"+keranqitinongdu+"ppm";
-	document.getElementById("keranqitinongdu1").innerText="预 测 值:"+keranqitinongdu+"ppm";
-	
+
 	document.getElementById("qiya").innerText="当 前 值:"+qiya+"KPa";
-	document.getElementById("qiya1").innerText="预 测 值:"+qiya+"KPa";
-	
+
 	document.getElementById("shidu").innerText="当 前 值:"+shidu+"g/m³";
-	document.getElementById("shidu1").innerText="预 测 值:"+shidu+"g/m³";
-	
+
 	}
+
+
+
 }
+
 
 

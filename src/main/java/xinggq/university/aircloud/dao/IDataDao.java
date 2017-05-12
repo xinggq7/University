@@ -2,6 +2,7 @@ package xinggq.university.aircloud.dao;
 
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by xinggq on 17-4-20.
@@ -17,8 +18,14 @@ public interface IDataDao {
     Object getCurrentDate();
 
     /**
-     * 获取历史数据
+     * 获取历史数据d
      * @return  返回数据实体集合
      */
-    List<Object> getHistoryData();
+    List<Object> getHistoryData(int startId,int step);
+
+    /**
+     * 获取昨天总数据量和起始数据id
+     * @return
+     */
+    Map<String,Integer> getLastDatanum();
 }

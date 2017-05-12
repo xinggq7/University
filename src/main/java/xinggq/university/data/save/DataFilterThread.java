@@ -54,13 +54,13 @@ public class DataFilterThread extends Thread{
         //暂存数据
         if(counter<= Constant.CATCHELLIST){
             catcheListA.add(data);
-            System.out.println("A"+catcheListA.size());
+            //System.out.println("A"+catcheListA.size());
             if(catcheListA.size()==Constant.CATCHELLIST){
                 sendArrayList(catcheListA);
             }
         }else {
             catcheListB.add(data);
-            System.out.println("B"+catcheListB.size());
+            //System.out.println("B"+catcheListB.size());
             if(catcheListB.size()==Constant.CATCHELLIST){
                 sendArrayList(catcheListB);
             }

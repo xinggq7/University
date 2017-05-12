@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" />
+
+<head>
+    <meta charset="utf-8" />
+    <title>数据检测端</title>
+
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="js/newBishe/highcharts.js"></script>
+
+
+    <link rel="stylesheet" href="css/newBishe/main.built.css" type="text/css" />
+    <script src="js/newBishe/head.built.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="css/title.css"/>
+    <link rel="stylesheet" type="text/css" href="css/pad.css"/>
+    <!--从侧面弹出的的div样式-->
+    <link rel="stylesheet" type="text/css" href="css/style4.css" />
+
+
+
+
+    <!--其他标题的css样式-->
+    <link rel="stylesheet" type="text/css" href="css/titleChange.css" />
+    <link rel="stylesheet" type="text/css" href="css/specificArea.css" />
+    <link rel="stylesheet" type="text/css" href="css/newBishe/datedropper.css">
+    <link rel="stylesheet" type="text/css" href="css/newBishe/timedropper.min.css">
+    <style type="text/css">
+        .demo{margin:8px auto 4px auto;width:320px}
+        .input{padding:6px;border:1px solid #d3d3d3}
+    </style>
+
+    <style type="text/css" media="screen">
+        .chart {
+            width: 100%;
+            height: 190px;
+            margin: 0 auto;
+        }
+    </style>
+
+
+</head>
+<body class="page-home ac-nav-overlap">
+<div style="text-align:center; width:100%; height:80px;">
+    <img src="img/newBishe/2.png" style="vertical-align:middle;" width="308px" height=100% />
+</div>
+
+<div class="main with-promos" >
+    <!--   图片  -->
+    <div class="gallery-container" data-analytics-region="hero">
+        <div id="homepage-gallery" class="gallery infinite-gallery with-paddlenav with-paddlenav-onhover" aria-label="main gallery">
+            <nav class="paddlenav paddlenav-framed paddlenav-compact paddlenav-homepage">
+                <ul role="tablist">
+                    <li class="paddlenav-arrow-container paddlenav-arrow-container-previous">
+                        <button class="paddlenav-arrow paddlenav-arrow-previous" id="homepage-gallery-previous-trigger" data-ac-gallery-previous-trigger="homepage-gallery" data-ac-gallery-previouslabel="Previous" aria-label="Previous"><span class="arrow-icon arrow-icon-previous"></span></button>
+                    </li>
+                    <li class="paddlenav-arrow-container paddlenav-arrow-container-next">
+                        <button class="paddlenav-arrow paddlenav-arrow-next" id="homepage-gallery-next-trigger" data-ac-gallery-next-trigger="homepage-gallery" data-ac-gallery-nextlabel="Next" aria-label="Next"><span class="arrow-icon arrow-icon-next"></span></button>
+                    </li>
+                </ul>
+            </nav>
+            <nav class="dashnav dot-nav"><ul role="tablist"></ul></nav>
+            <div class="gallery-slide-wrapper">
+                <!-- 第一张   -->
+                <div id="homepage-gallery-iphone-7" class="block gallery-item gallery-item-iphone-7" data-ac-gallery-item>
+
+                    <img src="img/newBishe/14.png">
+                    <!--<a href="/cn/shop/goto/buy_iphone/special_edition_iphone_7" id="homepage-gallery-iphone" class="gallery-item-dark gallery-item-content">
+                        <div class="gallery-item-copy-wrapper">
+                            <div class="inner">
+                                <span class="eyebrow">特别版</span><br/>
+                                <h1 class="typography-product-reduced centeralign">iPhone 7，</h1>
+                                <h2 class="typography-tagline-elevated centeralign">现更以红色呈现。</h2>
+                            </div>
+                        </div>
+                        <div class="gallery-item-image-element">
+                            <figure class="gallery-image-iphone"></figure>
+                        </div>
+                    </a> -->
+                </div>
+                <!-- 第二张   -->
+                <div id="homepage-gallery-apple-watch-series-2" class="block gallery-item gallery-item-apple-watch-series-2" data-ac-gallery-item>
+                    <img src="img/newBishe/12.png">
+                </div>
+                <!-- 第三张   -->
+                <div id="homepage-gallery-ipad" class="block gallery-item gallery-item-ipad" data-ac-gallery-item>
+                    <img src="img/newBishe/13.png">
+            </div>
+            </div>
+        </div>
+    </div>
+    <!--   地区选择     -->
+    <section id="promos" >
+        <ul>
+            <li>
+                <ul class="grid">
+                    <li class="five" style=" height:300px;text-align:center">
+                        <ul class="sidenav"  >
+                            <li><a name="area" href="javascript:void(0)"><b name="nangang"><h1 >当前空气状况</h1></b></a></li>
+                            <li><a name="area1" href="javascript:void(0)"><b name="nangang"><h3>历史空气状况</h3></b></a></li>
+                        </ul>
+                        <section >
+                            <h2>哈 尔 滨 南 岗</h2>
+                            <img src="img/mb4.png"  />
+                        </section>
+                    </li>
+                </ul>
+            </li>
+            <li  >
+                <ul class="grid">
+                    <li class="five"  style=" height:300px;">
+                        <ul class="sidenav">
+                            <li><a name="area" href="javascript:void(0)"><b name="nangang"><h1>当前空气状况</h1></b></a></li>
+                            <li><a name="area1" href="javascript:void(0)"><b name="nangang"><h3>历史空气状况</h3></b></a></li>
+                        </ul>
+                        <section>
+                            <h2>哈 尔 滨 南 岗</h2>
+                            <img src="../img/mb4.png" />
+                        </section>
+                    </li>
+                </ul>
+            </li>
+            <li >
+                <ul class="grid">
+                    <li class="five"  style=" height:300px;">
+                        <ul class="sidenav">
+                            <li><a name="area" href="javascript:void(0)"><b name="nangang"><h1>当前空气状况</h1></b></a></li>
+                            <li><a name="area1" href="javascript:void(0)"><b name="nangang"><h3>历史空气状况</h3></b></a></li>
+                        </ul>
+                        <section>
+                            <h2>哈 尔 滨 南 岗</h2>
+                            <img src="../img/mb4.png"/>
+                        </section>
+                    </li>
+                </ul>
+            </li>
+            <li >
+                <ul class="grid">
+                    <li class="five"  style=" height:300px;">
+                        <ul class="sidenav">
+                            <li><a name="area" href="javascript:void(0)"><b name="nangang"><h1>当前空气状况</h1></b></a></li>
+                            <li><a name="area1" href="javascript:void(0)"><b name="nangang"><h3>历史空气状况</h3></b></a></li>
+                        </ul>
+                        <section>
+                            <h2>哈 尔 滨 南 岗</h2>
+                            <img src="../img/mb4.png" />
+                        </section>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </section>
+    <div class="overlay overlay-slidedown">
+        <button type="button" class="overlay-close" >Close</button>
+        <div id="main">
+            <div class="demo">
+                <p>请选择日期：<input type="text" class="input" id="pickdate" /></p><br/>
+            </div>
+        </div>
+        <div id="all" style="height: 300px">
+        </div>
+    </div>
+
+</div>
+
+<script src="js/idangerous.swiper-2.1.min.js"></script>
+<script src="js/modernizr.custom.js"></script>
+<script src="js/classie.js"></script>
+<script src="js/cmdscriptmin.js"></script>
+
+
+<script src="js/newBishe/main.built.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="css/newBishe/datedropper.min.js"></script>
+<script src="css/newBishe/timedropper.min.js"></script>
+<script>
+    $("#pickdate").dateDropper({
+        animate: false,
+        format: 'Y-m-d',
+        maxYear: '2020'
+    });
+
+</script>
+</body>
+</html>
+

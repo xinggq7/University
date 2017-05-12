@@ -30,4 +30,24 @@ public class ViewController {
 
         return "bishe";
     }
+
+    /**
+     * 毕设页面，不提供地区选择
+     * @return
+     */
+    @RequestMapping("/newBishe")
+    public String getNBView(){
+
+        return "newBishe";
+    }
+
+    /**
+     * 毕设页面，不提供地区选择
+     * @return
+     */
+    @RequestMapping("/A")
+    public String A(){
+
+        return "A";
+    }
 }
