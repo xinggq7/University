@@ -27,8 +27,8 @@
     <link rel="stylesheet" type="text/css" href="css/newBishe/datedropper.css">
     <link rel="stylesheet" type="text/css" href="css/newBishe/timedropper.min.css">
     <style type="text/css">
-        .demo{margin:8px auto 4px auto;width:320px}
-        .input{padding:6px;border:1px solid #d3d3d3}
+        .demo{margin:8px auto 4px auto;width:500px}
+        .input{padding:6px;border:1px solid #d3d3d3;margin: 20px;}
     </style>
 
     <style type="text/css" media="screen">
@@ -38,7 +38,32 @@
             margin: 0 auto;
         }
     </style>
-
+    <style type="text/css" media="screen">
+        .button {
+            background-color: white;
+            display: inline-block;
+            outline: none;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            font: 14px/100% Arial, Helvetica, sans-serif;
+            padding: .5em 2em .55em;
+            text-shadow: 0 1px 1px rgba(0,0,0,.3);
+            -webkit-border-radius: .5em;
+            -moz-border-radius: .5em;
+            border-radius: .5em;
+            -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+            -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+            box-shadow: 0 1px 2px rgba(0,0,0,.2);
+        }
+        .button:hover {
+            text-decoration: none;
+        }
+        .button:active {
+            position: relative;
+            top: 1px;
+        }
+    </style>
 
 </head>
 <body class="page-home ac-nav-overlap">
@@ -65,7 +90,7 @@
                 <!-- 第一张   -->
                 <div id="homepage-gallery-iphone-7" class="block gallery-item gallery-item-iphone-7" data-ac-gallery-item>
 
-                    <img src="img/newBishe/14.png">
+                    <img src="img/newBishe/14.png" style="text-align: center">
                     <!--<a href="/cn/shop/goto/buy_iphone/special_edition_iphone_7" id="homepage-gallery-iphone" class="gallery-item-dark gallery-item-content">
                         <div class="gallery-item-copy-wrapper">
                             <div class="inner">
@@ -111,11 +136,11 @@
                 <ul class="grid">
                     <li class="five"  style=" height:300px;">
                         <ul class="sidenav">
-                            <li><a name="area" href="javascript:void(0)"><b name="nangang"><h1>当前空气状况</h1></b></a></li>
-                            <li><a name="area1" href="javascript:void(0)"><b name="nangang"><h3>历史空气状况</h3></b></a></li>
+                            <li><a name="area" href="javascript:void(0)"><b name="daoli"><h1>当前空气状况</h1></b></a></li>
+                            <li><a name="area1" href="javascript:void(0)"><b name="daoli"><h3>历史空气状况</h3></b></a></li>
                         </ul>
                         <section>
-                            <h2>哈 尔 滨 南 岗</h2>
+                            <h2>哈 尔 滨 道 里</h2>
                             <img src="../img/mb4.png" />
                         </section>
                     </li>
@@ -125,25 +150,11 @@
                 <ul class="grid">
                     <li class="five"  style=" height:300px;">
                         <ul class="sidenav">
-                            <li><a name="area" href="javascript:void(0)"><b name="nangang"><h1>当前空气状况</h1></b></a></li>
-                            <li><a name="area1" href="javascript:void(0)"><b name="nangang"><h3>历史空气状况</h3></b></a></li>
+                            <li><a name="area" href="javascript:void(0)"><b name="daowai"><h1>当前空气状况</h1></b></a></li>
+                            <li><a name="area1" href="javascript:void(0)"><b name="daowai"><h3>历史空气状况</h3></b></a></li>
                         </ul>
                         <section>
-                            <h2>哈 尔 滨 南 岗</h2>
-                            <img src="../img/mb4.png"/>
-                        </section>
-                    </li>
-                </ul>
-            </li>
-            <li >
-                <ul class="grid">
-                    <li class="five"  style=" height:300px;">
-                        <ul class="sidenav">
-                            <li><a name="area" href="javascript:void(0)"><b name="nangang"><h1>当前空气状况</h1></b></a></li>
-                            <li><a name="area1" href="javascript:void(0)"><b name="nangang"><h3>历史空气状况</h3></b></a></li>
-                        </ul>
-                        <section>
-                            <h2>哈 尔 滨 南 岗</h2>
+                            <h2>哈 尔 滨 道 外</h2>
                             <img src="../img/mb4.png" />
                         </section>
                     </li>
@@ -156,8 +167,10 @@
         <button type="button" class="overlay-close" >Close</button>
         <div id="main">
             <div class="demo">
-                <p>请选择日期：<input type="text" class="input" id="pickdate" /></p><br/>
+                <input id="exportArea" value="" type="hidden"/>
+                <p>请选择日期：<input type="text" class="input" value="" id="pickdate" /><a href="javascript:void(0)" class="button blue" id="export" >导出</a><br/></p>
             </div>
+
         </div>
         <div id="all" style="height: 300px">
         </div>
@@ -182,6 +195,11 @@
         maxYear: '2020'
     });
 
+    $("#export").click(function(){
+        if($("#pickdate").val()=="")
+            return;
+        location.href="data/export/"+$("#exportArea").val()+"/"+$("#pickdate").val();
+    });
 </script>
 </body>
 </html>

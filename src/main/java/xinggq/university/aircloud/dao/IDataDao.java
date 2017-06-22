@@ -28,4 +28,7 @@ public interface IDataDao {
      * @return
      */
     Map<String,Integer> getLastDatanum();
+
+
+    List<Map<String,Object>> export(String date);
 }

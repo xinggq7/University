@@ -23,10 +23,11 @@ var chart;
 	
 	
 	function toggleFScreen(time,area) {
+        $("#exportArea").val(area);
 		//if(time=="now")time标识了点击的按钮
 		//现在的状态是不是开启的状态
 		if( classie.has( FScreen, 'open' )) {
-			
+
 				//停止AJAX
 				var clear = function(){
 					flag = false;
@@ -52,13 +53,13 @@ var chart;
 			
 			classie.add( FScreen, 'open');
 			flag = true;
-			
 			//如果是当前数据的话就启动AJAX
 			if(time=="now"){
 				//ajax(time,area);
 				timer = setInterval( function(){ajax(time,area)} , 1000);
 				/***********************画曲线***********************/
 				var NowParameter = document.getElementById("all");
+
                 $("#main").hide();
 				NowParameter.innerHTML ="<div id = 'NowParameter'>" +
 							"<ul class='pricing_table'>"+
@@ -461,8 +462,7 @@ function ajax(time,area){
 		var url="data/current/"+area;
 		xmlHTTP.onreadystatechange=callBackFun;//设置回调方法
 	}else{
-		var url="export.do?area="+area;
-		xmlHTTP.onreadystatechange=callBackHistory;//设置回调方法
+		
 	}
 	xmlHTTP.open("POST",url,true);
 	xmlHTTP.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");//设置请求的头部信息，只有当状态码为1时，才可以在open

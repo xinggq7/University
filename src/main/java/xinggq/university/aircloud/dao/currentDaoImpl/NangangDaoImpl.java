@@ -36,4 +36,10 @@ public interface NangangDaoImpl extends IDataDao {
      * @return
      */
     Map<String,Integer> getLastDatanum();
+
+    /**
+     * 导出指定日期的报表
+     * @return
+     */
+    List<Map<String,Object>>  export(String data);
 }

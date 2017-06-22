@@ -16,8 +16,11 @@
     <!-- 获取昨天所有数据总数和id的最小值-->
     <select id="getLastDatanum" resultType="Map">
         select max(id) maxId,min(id) minId from nangang where
-		time1 between date_add(curdate(),interval -2 day ) and  curdate() order by time1
+		time1 between date_add(curdate(),interval -1 day ) and  curdate() order by time1
     </select>
 
-
+    <!-- 导出指定日期的报表-->
+    <select id="export" resultType="Hashmap" parameterType="String">
+        select * from nangang  where  date_format(time1,"%Y-%m-%d") =#{data} order by time1
+    </select>
 </mapper>

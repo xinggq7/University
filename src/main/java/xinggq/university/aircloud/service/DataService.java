@@ -1,5 +1,6 @@
 package xinggq.university.aircloud.service;
 
+import org.apache.poi.hssf.usermodel.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import xinggq.university.aircloud.dao.IDataDao;
@@ -7,6 +8,10 @@ import xinggq.university.aircloud.entity.Nangang;
 import xinggq.university.aircloud.factory.IFactory;
 import xinggq.university.aircloud.util.CreateFactorys;
 
+import javax.servlet.ServletOutputStream;
+import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -118,9 +123,18 @@ public class DataService {
                 "\"type\": \"area\","+
                 "\"valueDecimals\": 0"+
                 "}]}";
-        System.out.println(s);
         return s;
     }
+
+    public List<Map<String,Object>> export(String type,String date){
+
+        IDataDao iDataDao = getIDataDao(type);
+        List<Map<String,Object>> list = iDataDao.export(date);
+
+        return list;
+    }
+
+
 
     /**
      *  获取对应的dao层对象
@@ -137,7 +151,5 @@ public class DataService {
         return iFactory.getInstance();
     }
 
-//    public static void main(String[] args) {
-//        new DataService().getHistoryData("nangang");
-//    }
+
 }
